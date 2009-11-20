@@ -80,8 +80,7 @@ class tx_piwik {
         $trackingCode .= "\t\t".'piwikTracker.trackPageView();';
 		
 		//replace placeholders
-		//currently the function $this->getPiwikHost() is not called, because of piwikintegration?!
-		$template = str_replace('###TRACKEROPTIONS###',$trackingCode        ,$template);
+		$template = str_replace('###TRACKEROPTIONS###',$trackingCode  ,$template);
 		$template = str_replace('###HOST###'          ,$conf['piwik_host']  ,$template);
 		$template = str_replace('###IDSITE###'        ,$conf['piwik_idsite'],$template);
 		

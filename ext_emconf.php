@@ -1,21 +1,21 @@
 <?php
 
 ########################################################################
-# Extension Manager/Repository config file for ext: "piwik"
+# Extension Manager/Repository config file for ext "piwika2".
 #
-# Auto generated 28-03-2009 12:59
+# Auto generated 20-11-2009 08:36
 #
 # Manual updates:
-# Only the data in the array - anything else is removed by next write.
-# "version" and "dependencies" must not be touched!
+# Only the data in the array - everything else is removed by next
+# writing. "version" and "dependencies" must not be touched!
 ########################################################################
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Piwik - Open source web analytics',
+	'title' => 'Piwik - web analytics, new API',
 	'description' => 'Adds Piwik JS-Code (http://piwik.org/) to your pages',
 	'category' => 'fe',
 	'shy' => 0,
-	'version' => '1.0.2',
+	'version' => '1.0.1',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -27,9 +27,9 @@ $EM_CONF[$_EXTKEY] = array(
 	'modify_tables' => '',
 	'clearcacheonload' => 0,
 	'lockType' => '',
-	'author' => 'Frank NÃ¤gler',
-	'author_email' => 'typo3@naegler.net',
-	'author_company' => 'TYPO3Weblog.de',
+	'author' => 'Ulrich Wuensche',
+	'author_email' => 'wuensche@drwuensche.de',
+	'author_company' => 'www.drwuensche.de',
 	'CGLcompliance' => '',
 	'CGLcompliance_note' => '',
 	'constraints' => array(
@@ -40,7 +40,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:4:{s:18:"class.tx_piwik.php";s:4:"f493";s:12:"ext_icon.gif";s:4:"e1ca";s:17:"ext_localconf.php";s:4:"3ef1";s:14:"doc/manual.sxw";s:4:"44ae";}',
+	'_md5_values_when_last_written' => 'a:4:{s:20:"class.tx_piwik.php";s:4:"7543";s:12:"ext_icon.gif";s:4:"e1ca";s:17:"ext_localconf.php";s:4:"aa78";s:14:"doc/manual.sxw";s:4:"ec31";}',
 );
 
 ?>
