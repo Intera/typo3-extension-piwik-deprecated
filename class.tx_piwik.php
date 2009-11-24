@@ -44,7 +44,7 @@ class tx_piwik {
 	 * @param	reference   $reference: 
 	 * @return	nil		...
 	 */
-	function contentPostProc_all(&$params, &$reference){
+	function contentPostProc_output(&$params, &$reference){
 		// process the page with these options
 		$content	 = $params['pObj']->content;
 		$conf		 = $params['pObj']->config['config']['tx_piwik.'];
