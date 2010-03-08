@@ -2,6 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
+*  (c) 2010 	Kay Strobach (typo3@kay-strobach.de)
 *  (c) 2009 	Ulrich Wuensche (wuensche@drwuensche.de),
 *
 *  All rights reserved
