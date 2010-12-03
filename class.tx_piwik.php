@@ -53,10 +53,12 @@ class tx_piwik {
 
 		//check wether there is a BE User loggged in, if yes avoid to display the tracking code!
 		//check wether needed parameters are set properly
-		if ((!$conf['piwik_idsite']) || (!$conf['piwik_host']) || ($beUserLogin == 1)) {
+		if ((!$conf['piwik_idsite']) || (!$conf['piwik_host'])) {
 			//fetch the js template file, makes editing easier ;)
 			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/notracker.html');
-		} else {
+		} elseif($beUserLogin == 1) {
+			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/notracker_beuser.html');
+		}else {
 			//fetch the js template file, makes editing easier ;)
 			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/tracker.html');
 		}
