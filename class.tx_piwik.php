@@ -52,21 +52,18 @@ class tx_piwik {
 		$beUserLogin = $params['pObj']->beUserLogin;
 
 		//check wether there is a BE User loggged in, if yes avoid to display the tracking code!
-		if($beUserLogin == 1) {
-			return;
-		}
-		
 		//check wether needed parameters are set properly
-		if (!($conf['piwik_idsite']) || !($conf['piwik_host'])) {
-			return;
+		if ((!$conf['piwik_idsite']) || (!$conf['piwik_host']) || ($beUserLogin == 1)) {
+			//fetch the js template file, makes editing easier ;)
+			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/notracker.html');
+		} else {
+			//fetch the js template file, makes editing easier ;)
+			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/tracker.html');
 		}
 		
 		//make options accessable in the whole class
 		$this->piwikOptions = $conf;
 		
-		//fetch the js template file, makes editing easier ;)
-		$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/piwiktracker.js');
-
 		//build trackingCode
 		$trackingCode .= $this->getPiwikEnableLinkTracking();
 		$trackingCode .= $this->getPiwikDomains();
@@ -85,6 +82,7 @@ class tx_piwik {
 		$template = str_replace('###TRACKEROPTIONS###',$trackingCode        ,$template);
 		$template = str_replace('###HOST###'          ,$conf['piwik_host']  ,$template);
 		$template = str_replace('###IDSITE###'        ,$conf['piwik_idsite'],$template);
+		$template = str_replace('###BEUSER###'        ,$beUserLogin         ,$template);
 		
 		//add complete piwikcode to frontend
 		$params['pObj']->content = str_replace('</body>', $template.'</body>', $content);
