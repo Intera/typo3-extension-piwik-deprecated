@@ -1,0 +1,8 @@
+config.tx_piwik {
+  	############################################################################
+	# location of piwik
+	  	piwik_host       = {$config.tx_piwik.piwik_host}
+  	############################################################################
+	# idsite inside piwik
+		piwik_idsite     = {$config.tx_piwik.piwik_idsite}
+}
