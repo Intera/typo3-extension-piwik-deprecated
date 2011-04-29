@@ -31,7 +31,8 @@
  * @author	Joerg Winter <winter@b-net1.de>
  * @author  Kay Strobach <typo3@kay-strobach.de> 
  */
-class tx_piwik {
+class tx_Piwik_UserFunc_Footer {
+	var $cObj;
 	private $tc = array();
 	/**
 	 * write piwik javascript right before </body> tag
@@ -45,22 +46,26 @@ class tx_piwik {
 	 * @param	reference   $reference: 
 	 * @return	nil		...
 	 */
-	function contentPostProc_output(&$params, &$reference){
+	function contentPostProc_output($content, $conf){
 		// process the page with these options
-		$content	 = $params['pObj']->content;
-		$conf		 = $params['pObj']->config['config']['tx_piwik.'];
-		$beUserLogin = $params['pObj']->beUserLogin;
-
+		$conf		 = $GLOBALS['TSFE']->tmpl->setup['config.']['tx_piwik.'];
+		$beUserLogin = $GLOBALS['TSFE']->beUserLogin;
+		
 		//check wether there is a BE User loggged in, if yes avoid to display the tracking code!
 		//check wether needed parameters are set properly
 		if ((!$conf['piwik_idsite']) || (!$conf['piwik_host'])) {
 			//fetch the js template file, makes editing easier ;)
-			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/notracker.html');
+			$extConf = unserialize($GLOBALS['$TYPO3_CONF_VARS']['EXT']['extConf']['piwik']);
+			if($extConf['showFaultyConfigHelp']) {
+				$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'Resources/Private/Templates/Piwik/notracker.html');
+			} else {
+				return '';
+			}
 		} elseif($beUserLogin == 1) {
-			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/notracker_beuser.html');
+			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'Resources/Private/Templates/Piwik/notracker_beuser.html');
 		}else {
 			//fetch the js template file, makes editing easier ;)
-			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'static/tracker.html');
+			$template = t3lib_div::getURL(t3lib_extMgm::extPath('piwik').'Resources/Private/Templates/Piwik/tracker.html');
 		}
 		
 		//make options accessable in the whole class
@@ -87,7 +92,8 @@ class tx_piwik {
 		$template = str_replace('###BEUSER###'        ,$beUserLogin         ,$template);
 		
 		//add complete piwikcode to frontend
-		$params['pObj']->content = str_replace('</body>', $template.'</body>', $content);
+		#$params['pObj']->content = str_replace('</body>', $template.'</body>', $content);
+		return $template; 
 	}
 
 	/**
