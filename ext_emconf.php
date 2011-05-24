@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "piwik".
 #
-# Auto generated 17-02-2011 19:25
+# Auto generated 24-05-2011 12:48
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -15,8 +15,8 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Adds Piwik JS-Code (http://piwik.org/) to your pages',
 	'category' => 'fe',
 	'shy' => 0,
-	'version' => '1.0.4',
-	'dependencies' => 'typo3',
+	'version' => '3.0.0',
+	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
@@ -34,14 +34,14 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
-			'typo3' => '4.3.0-4.6.0'
+			'typo3' => '4.3.0-4.6.0',
 		),
 		'conflicts' => array(
 		),
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:10:{s:18:"class.tx_piwik.php";s:4:"aee8";s:12:"ext_icon.gif";s:4:"d803";s:17:"ext_localconf.php";s:4:"a9b8";s:14:"ext_tables.php";s:4:"e80b";s:14:"doc/manual.sxw";s:4:"7706";s:21:"static/notracker.html";s:4:"b38e";s:28:"static/notracker_beuser.html";s:4:"3482";s:19:"static/tracker.html";s:4:"4932";s:26:"static/piwik/constants.txt";s:4:"8e03";s:22:"static/piwik/setup.txt";s:4:"f522";}',
+	'_md5_values_when_last_written' => 'a:11:{s:21:"ext_conf_template.txt";s:4:"ee4a";s:12:"ext_icon.gif";s:4:"d803";s:17:"ext_localconf.php";s:4:"e709";s:14:"ext_tables.php";s:4:"4523";s:27:"Classes/UserFunc/Footer.php";s:4:"206f";s:38:"Configuration/TypoScript/constants.txt";s:4:"9070";s:34:"Configuration/TypoScript/setup.txt";s:4:"7b0d";s:48:"Resources/Private/Templates/Piwik/notracker.html";s:4:"b38e";s:55:"Resources/Private/Templates/Piwik/notracker_beuser.html";s:4:"3482";s:46:"Resources/Private/Templates/Piwik/tracker.html";s:4:"4932";s:14:"doc/manual.sxw";s:4:"7706";}',
 	'suggests' => array(
 	),
 );
